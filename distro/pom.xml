@@ -426,6 +426,22 @@
             </goals>
           </execution>
 
+           <execution>
+             <id>Copy all OpenMRS 3.x configuration</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                <copy
+                  todir="${project.build.directory}/${project.artifactId}-${project.version}/configs/openmrs/frontend_config">
+                  <fileset dir="${project.build.directory}/openmrs_frontend" />
+                </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+
           <execution>
             <id>Copy filtered OpenMRS configuration</id>
             <phase>prepare-package</phase>
