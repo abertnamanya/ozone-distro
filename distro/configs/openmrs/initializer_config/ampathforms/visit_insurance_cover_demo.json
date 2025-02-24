@@ -1,0 +1,184 @@
+{
+    "name": "Medical Aid Visit Form",
+    "uuid": "ccc2dd18-4acf-42e9-a333-d3cc97d41407",
+    "description": "Medical Aid Visit Form",
+    "version": "1",
+    "published": true,
+    "retired": false,
+    "encounter": "Medical Aid Visit",
+    "processor": "EncounterFormProcessor",
+    "pages": [
+      {
+        "label": "Encounter Details",
+        "sections": [
+          {
+            "label": "Encounter Details",
+            "isExpanded": "true",
+            "questions": [
+              {
+                "label": "Visit date:",
+                "type": "encounterDatetime",
+                "required": "true",
+                "default": "",
+                "id": "encDate",
+                "questionOptions": {
+                  "rendering": "date"
+                },
+                "validators": [
+                  {
+                    "type": "date"
+                  }
+                ]
+              },
+              {
+                "type": "encounterProvider",
+                "label": "Provider:",
+                "id": "provider",
+                "required": "true",
+                "default": "",
+                "questionOptions": {
+                  "rendering": "ui-select-extended"
+                }
+              },
+              {
+                "type": "encounterLocation",
+                "label": "Facility name (site/satellite clinic required):",
+                "id": "location",
+                "required": "true",
+                "questionOptions": {
+                  "rendering": "ui-select-extended"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Patient Medical AID",
+        "sections": [
+          {
+            "label": "Patient Medical AID Review",
+            "isExpanded": "true",
+            "questions": [
+              {
+                "label": "Patient has medical cover:",
+                "id": "hasMedicalAid",
+                "historicalExpression": "_.isEmpty(HD.getObject('prevEnc').getValue('0b49e3e6-55df-4096-93ca-59edadb74b3f')) ? undefined : HD.getObject('prevEnc').getValue('0b49e3e6-55df-4096-93ca-59edadb74b3f')",
+                "questionOptions": {
+                  "rendering": "select",
+                  "concept": "0b49e3e6-55df-4096-93ca-59edadb74b3f",
+                  "answers": [
+                    {
+                      "concept": "8b715fed-97f6-4e38-8f6a-c167a42f8923",
+                      "label": "Yes"
+                    },
+                    {
+                      "concept": "a899e0ac-1350-11df-a1f1-0026b9348838",
+                      "label": "No"
+                    }
+                  ]
+                },
+                "type": "obs",
+                "validators": []
+              },
+              {
+                "type": "obs",
+                "questionOptions": {
+                  "rendering": "text",
+                  "concept": "95d2b358-ef3b-4a41-9215-06bfc9ef107e"
+                },
+                "id": "medicalAidNo",
+                "label": "Medical Aid Number",
+                "hide": {
+                  "hideWhenExpression": "hasMedicalAid !== '8b715fed-97f6-4e38-8f6a-c167a42f8923'"
+                }
+              },
+              {
+                "label": "What Medical Aid cover patient falls under?",
+                "id": "healthInsurance",
+                "questionInfo": "Indicate if the patient has medical cover and the organization.",
+                "questionOptions": {
+                  "rendering": "select",
+                  "concept": "a8b02524-1350-11df-a1f1-0026b9348838",
+                  "answers": [
+                    {
+                      "concept": "0bfb0150-949b-4625-98b8-b9d8275bcf44",
+                      "label": "Pro bono patient"
+                    },
+                    {
+                      "concept": "6fac74c3-fe25-4170-92a4-3ecb8859152e",
+                      "label": "Cash Patient"
+                    },
+                    {
+                      "concept": "21eb8488-76ae-47ce-a542-bb3038ab05de",
+                      "label": "PSMAS"
+                    },
+                    {
+                      "concept": "e95154fa-2c64-471f-8846-523d0c47c64f",
+                      "label": "First Mutual Health"
+                    },
+                    {
+                      "concept": "f4694a79-df58-41b4-89bf-27f3c2c7d95c",
+                      "label": "CBZ Medical Aid Fund"
+                    },
+                    {
+                      "concept": "db5a5500-80c9-42fd-abf3-da44d5d25f9f",
+                      "label": "Fidelity Life Medical Aid"
+                    },
+                    {
+                      "concept": "cb0b7a67-961b-485d-8dde-4fa65cec476b",
+                      "label": "Cellmed Health Medical Fund"
+                    },
+                    {
+                      "concept": "4f07ef66-7b54-4f24-ab2c-e9d68f49f659",
+                      "label": "Generation Health Medical Fund"
+                    },
+                    {
+                      "concept": "8791d661-7446-452a-ac27-955759865d3a",
+                      "label": "Health International Medical Aid Scheme (HIMAS)"
+                    },
+                    {
+                      "concept": "04698d13-3bc1-47ba-91ca-f474a4777547",
+                      "label": "Altfin Medical Aid Scheme"
+                    },
+                    {
+                      "concept": "a021c12e-c005-47dc-94ee-4b89e29ed61d",
+                      "label": "Masca (Medical Aid Society for Churches in Africa)"
+                    },
+                    {
+                      "concept": "031aac31-dacd-440f-abef-f1615da4ba57",
+                      "label": "Rhodes Health Medical Aid Society"
+                    },
+                    {
+                      "concept": "93259241-c67f-40a6-937e-7bfe41230dd3",
+                      "label": "Minerva Medical Aid Scheme"
+                    },
+                    {
+                      "concept": "268e7d2e-0403-4e2f-8698-82976383a96e",
+                      "label": "International Medical Aid"
+                    }
+                  ]
+                },
+                "type": "obs",
+                "validators": [],
+                "hide": {}
+              },
+              {
+                "type": "obs",
+                "questionOptions": {
+                  "rendering": "text",
+                  "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                },
+                "id": "other",
+                "label": "which International Medical Aid Organization?",
+                "hide": {
+                  "hideWhenExpression": "healthInsurance !== '268e7d2e-0403-4e2f-8698-82976383a96e'"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "encounterType": "dd528487-82a5-4082-9c72-ed246bd49591"
+  }
