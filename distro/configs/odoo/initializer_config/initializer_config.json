@@ -1,5 +1,10 @@
 {
-    "models" : [
+    "models": [
+        {
+            "model_name": "auth.oauth.provider",
+            "folder": "auth_providers",
+            "field_rules": {}
+        },
         {
             "model_name": "account.tax",
             "folder": "taxes",
@@ -18,6 +23,21 @@
         {
             "model_name": "ir.actions.act_window",
             "folder": "act_window",
+            "field_rules": {}
+        },
+        {
+            "model_name": "ir.model.fields",
+            "folder": "custom_fields",
+            "field_rules": {}
+        },
+        {
+            "model_name": "ir.model",
+            "folder": "models",
+            "field_rules": {}
+        },
+        {
+            "model_name": "ir.ui.view",
+            "folder": "views",
             "field_rules": {}
         }
     ]
