@@ -17,6 +17,22 @@
         "title": "Reporting & Analytics",
         "redirect": "${SUPERSET_PUBLIC_URL}"
       }
-    ]
+    ],
+    "logo": {
+      "src": "ozone/ZimHospCareLogo.svg",
+      "alt": "ozone-logo"
+    }
+  },
+  "@openmrs/esm-login-app": {
+    "logo": {
+      "src": "ozone/ZimHospCareLogo.png",
+      "alt": "ZimHospCare-logo"
+    }
+  },
+  "@openmrs/esm-patient-chart-app": {
+    "logo": {
+      "src": "ozone/ZimHospCareLogo.svg",
+      "alt": "ZimHospCare-logo"
+    }
   }
 }
