@@ -607,7 +607,7 @@
           </execution> -->
 
                              
-          <execution>
+          <!-- <execution>
             <id>Rename spa-assemble-config.json to reference-application-spa-assemble-config.json</id>
             <phase>generate-resources</phase>
             <configuration>
@@ -619,7 +619,7 @@
             <goals>
               <goal>run</goal>
             </goals>
-          </execution>
+          </execution> -->
 
           <execution>
             <id>Copy openmrs initializer_config</id>
