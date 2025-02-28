@@ -592,7 +592,7 @@
           </execution> -->
 
    
-        <execution>
+        <!-- <execution>
                     <id>copy-file</id>
                     <phase>process-resources</phase>
                     <configuration>
@@ -604,7 +604,7 @@
                     <goals>
                         <goal>run</goal>
                     </goals>
-          </execution>
+          </execution> -->
 
                              
           <execution>
