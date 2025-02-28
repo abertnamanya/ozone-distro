@@ -35,6 +35,9 @@
     <eipOpenMRSSenaiteVersion>2.0.0</eipOpenMRSSenaiteVersion>
     <eipOdooOpenMRSVersion>2.0.0</eipOdooOpenMRSVersion>
     <eipERPNextOpenMRSVersion>1.1.0</eipERPNextOpenMRSVersion>
+    <reportingrestVersion>1.15.0</reportingrestVersion>
+    <reportingVersion>1.27.0</reportingVersion>
+    <emrapiVersion>2.2.0</emrapiVersion>
 
     <!-- EIP Routes artifact Ids -->
     <eipOpenMRSSenaiteArtifactId>eip-openmrs-senaite</eipOpenMRSSenaiteArtifactId>
@@ -84,6 +87,26 @@
       <groupId>org.openmrs.module</groupId>
       <artifactId>commonreports-omod</artifactId>
       <version>${commonreportsVersion}</version>
+      <type>jar</type>
+    </dependency>
+
+     <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>reporting-omod</artifactId>
+      <version>${reportingVersion}</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>reportingrest-omod</artifactId>
+      <version>${reportingrestVersion}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>emrapi-omod</artifactId>
+      <version>${emrapiVersion}</version>
       <type>jar</type>
     </dependency>
 
@@ -403,7 +426,36 @@
             </configuration>
           </execution>
 
+         <execution>
+                    <id>copy-file</id>
+                    <phase>process-resources</phase>
+                    <configuration>
+                    <target>
+                            <copy file="configs/openmrs/frontend_assembly/spa-assemble-config.json" 
+                                  tofile="${project.build.directory}/openmrs_frontend/spa-assemble-config.json"/>
+                     </target>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+          </execution>
+
+                             
           <execution>
+            <id>Rename spa-assemble-config.json to reference-application-spa-assemble-config.json</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                <copy file="configs/openmrs/frontend_assembly/reference-application-spa-assemble-config.json" 
+                                  tofile="${project.build.directory}/openmrs_frontend/reference-application-spa-assemble-config.json"/>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+
+          <!-- <execution>
             <id>Rename spa-assemble-config.json to reference-application-spa-assemble-config.json</id>
             <phase>generate-resources</phase>
             <configuration>
@@ -424,7 +476,7 @@
             <goals>
               <goal>run</goal>
             </goals>
-          </execution>
+          </execution> -->
 
           <execution>
             <id>Copy filtered OpenMRS configuration</id>
