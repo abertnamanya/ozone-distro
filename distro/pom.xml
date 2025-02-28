@@ -496,22 +496,44 @@
             </configuration>
           </execution>
 
-          <execution>
-            <id>Rename spa-assemble-config.json to reference-application-spa-assemble-config.json</id>
+<!-- 
+           <execution>
+             <id>Copy spa-assemble-config configuration</id>
             <phase>generate-resources</phase>
             <configuration>
               <target>
                 <copy
                   todir="${project.build.directory}/${project.artifactId}-${project.version}/configs/openmrs/frontend_assembly">
                   <fileset dir="${project.build.directory}/openmrs_frontend" />
-                  <mapper from="spa-assemble-config.json"
-                    to="reference-application-spa-assemble-config.json" type="regexp" />
                 </copy>
-                <move todir="${project.build.directory}/openmrs_frontend">
-                  <fileset dir="${project.build.directory}/openmrs_frontend" />
-                  <mapper from="spa-assemble-config.json"
-                    to="reference-application-spa-assemble-config.json" type="regexp" />
-                </move>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution> -->
+
+   
+                <execution>
+                    <id>copy-file</id>
+                    <phase>process-resources</phase>
+                    <configuration>
+                    <target>
+                            <copy file="configs/openmrs/frontend_assembly/spa-assemble-config.json" 
+                                  tofile="${project.build.directory}/openmrs_frontend/spa-assemble-config.json"/>
+                     </target>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+          <execution>
+            <id>Rename spa-assemble-config.json to reference-application-spa-assemble-config.json</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                <copy file="configs/openmrs/frontend_config/reference-application-spa-assemble-config.json" 
+                                  tofile="${project.build.directory}/openmrs_frontend/reference-application-spa-assemble-config.json"/>
               </target>
             </configuration>
             <goals>
