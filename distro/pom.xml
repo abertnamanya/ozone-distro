@@ -687,7 +687,7 @@
             <goals>
               <goal>run</goal>
             </goals>
-          </execution> -->
+          </execution>
 
           <execution>
             <id>Copy filtered OpenMRS configuration</id>
