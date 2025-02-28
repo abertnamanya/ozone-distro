@@ -19,20 +19,20 @@
       }
     ],
     "logo": {
-      "src": "ozone/ZimHospCareLogo.svg",
+      "src": "ozone/zim-logo.svg",
       "alt": "ozone-logo"
     }
   },
   "@openmrs/esm-login-app": {
     "logo": {
-      "src": "ozone/ZimHospCareLogo.png",
-      "alt": "ZimHospCare-logo"
+      "src": "ozone/zim-logo.png",
+      "alt": "logo"
     }
   },
   "@openmrs/esm-patient-chart-app": {
     "logo": {
-      "src": "ozone/ZimHospCareLogo.svg",
-      "alt": "ZimHospCare-logo"
+      "src": "ozone/zim-logo.svg",
+      "alt": "ozone-logo"
     }
   }
 }
