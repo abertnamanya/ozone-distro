@@ -38,7 +38,7 @@
     <patientsummaryVersion>2.2.0</patientsummaryVersion>
     <reportingrestVersion>1.15.0</reportingrestVersion>
     <reportingVersion>1.27.0</reportingVersion>
-    <emrapiVersion>2.0.0</emrapiVersion>
+    <emrapiVersion>2.2.0</emrapiVersion>
 
 
     <!-- EIP Routes artifact versions -->
@@ -560,6 +560,58 @@
               <target>
                 <copy file="configs/openmrs/frontend_assembly/reference-application-spa-assemble-config.json" 
                                   tofile="${project.build.directory}/openmrs_frontend/reference-application-spa-assemble-config.json"/>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>Copy openmrs initializer_config</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+             <copy
+                  todir="${project.build.directory}/openmrs_config">
+                  <fileset
+                     dir="configs/openmrs/initializer_config"/>
+              </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>Copy images</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+             <copy
+                  todir="${project.build.directory}/openmrs_frontend">
+                  <fileset
+                    dir="configs/openmrs/frontend_config" />
+               </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+
+
+            <execution>
+            <id>Copy openmrs modules</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+             <copy
+                  todir="${project.build.directory}/openmrs_modules">
+                  <fileset
+                     dir="configs/openmrs/openmrs_modules"/>
+              </copy>
               </target>
             </configuration>
             <goals>

@@ -1,11 +1,10 @@
 {
     "name": "Medical Aid Visit Form",
-    "uuid": "ccc2dd18-4acf-42e9-a333-d3cc97d41407",
     "description": "Medical Aid Visit Form",
     "version": "1",
     "published": true,
     "retired": false,
-    "encounter": "Medical Aid Visit",
+    "encounter": "Consultation",
     "processor": "EncounterFormProcessor",
     "pages": [
       {
